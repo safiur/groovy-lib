@@ -1,3 +1,7 @@
+@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.6' ) 
+import groovyx.net.http.HTTPBuilder 
+import static groovyx.net.http.Method.GET 
+import static groovyx.net.http.ContentType.JSON
 def call(Map pipelineParams) {
     pipeline {
         agent any
