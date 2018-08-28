@@ -1,5 +1,7 @@
-@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7' )
-import static groovyx.net.http.Method.GET
+Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7.1' )
+import groovyx.net.http.*
+import static groovyx.net.http.ContentType.*
+import static groovyx.net.http.Method.*
 def call(def server, def port) {
 
         httpRequest httpMode: 'POST', url: "http://${server}:${port}/shutdown", validResponseCodes: '200,408'
