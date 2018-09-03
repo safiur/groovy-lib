@@ -12,8 +12,8 @@ def call(def server, def port) {
         sh "scp -rv target/gs*.jar root@${server}:/usr/local/tomcat/webapps/ROOT/"
         sh "ssh -t root@${server} /usr/local/tomcat/bin/startup.sh"
 }
-retry (3) {
-        sleep 5
-        httpRequest url:"http://${server}:${port}/health", validResponseCodes: '200', validResponseContent: '"status":"UP"'
-    }
+#retry (3) {
+ #       sleep 5
+  #      httpRequest url:"http://${server}:${port}/health", validResponseCodes: '200', validResponseContent: '"status":"UP"'
+#    }
 }
