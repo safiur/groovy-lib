@@ -8,7 +8,6 @@ def call(def server, def port) {
 
         httpRequest httpMode: 'POST', url: "http://${server}:${port}/shutdown", validResponseCodes: '200,408,404'
         sshagent(['sshkey_id']) {
-        sh "ssh -t root@${server} 'ls -ll'"
         sh "scp -rv target/gs*.jar root@${server}:/usr/local/tomcat/webapps/ROOT/"
         sh "ssh -t root@${server} /usr/local/tomcat/bin/startup.sh"
 }
