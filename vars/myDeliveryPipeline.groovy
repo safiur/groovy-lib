@@ -1,7 +1,5 @@
 def call(Map pipelineParams) {
     pipeline {
-        options { 
-             buildDiscarder(logRotator(numToKeepStr: '1')) timestamps()  }
         agent any
         stages {
             stage('checkout git') {
