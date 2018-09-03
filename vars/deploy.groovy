@@ -8,7 +8,7 @@ def call(def server, def port) {
 
         httpRequest httpMode: 'POST', url: "http://${server}:${port}/shutdown", validResponseCodes: '200,408,404'
         sshagent(['sshkey_id']) {
-        sh "ls -ll"
+        sh "ssh -t root@${server} ls -ll"
         sh "target/*.jar root@${server}:/usr/local/tomcat/webapps/ROOT/"
 }
 retry (3) {
