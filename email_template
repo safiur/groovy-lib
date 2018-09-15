@@ -1,0 +1,67 @@
+<STYLE>
+    BODY, TABLE, TD, TH, P {
+    font-family:Verdana,Helvetica,sans serif;
+    font-size:11px;
+    color:black;
+    }
+    h1 { color:black; }
+    h2 { color:black; }
+    h3 { color:black; }
+    TD.bg1 { color:white; background-color:#4040FF; font-size:120% }
+    TD.bg2 { color:white; background-color:#4040FF; font-size:110% }
+    TD.bg3 { color:white; background-color:#8080FF; }
+    TD.test_passed { color:#ccc; }
+    TD.test_failed { color:red; }
+    TD.console { font-family:Courier New, Lucida Console; }
+</STYLE>
+<BODY bgcolor=#aed6f1>
+    <TABLE>
+        <TR>
+            <TD align="left">
+            <IMG SRC="http://<LINKTOJENKINS>/static/eb749496/images/headshot.png"/>
+            </TD>
+            <TD valign="center"><B style="font-size: 200%;color: blue">JENKINS BUILD RESULTS</B></TD>
+        </TR>
+        <TR>
+            <TD><PRE>JOB_URL         : </PRE></TD>
+            <TD><A href="${BUILD_URL}">${JOB_NAME}</A></TD>
+        </TR>
+        <TR>
+            <TD><PRE>JOB_NAME        : </PRE></TD>
+            <TD>${JOB_NAME}</TD>
+        </TR>
+        <TR>
+            <TD><PRE>BUILD_NUMBER    : </PRE></TD>
+            <TD>${BUILD_DISPLAY_NAME}</TD>
+        </TR>
+        <TR>
+            <TD><PRE>BUILD_TIMESTAMP : </PRE></TD>
+            <TD>${BUILD_TIMESTAMP}</TD>
+        </TR>
+        <TR>
+            <TD><PRE>TRIGGER         : </PRE></TD>
+            <TD>${BUILD_CAUSE}</TD>
+        </TR>
+    </TABLE>
+  <BR/>
+  <TABLE width="100%">
+     <TR><TD class="bg2" colspan="2"><B>CHANGES</B></TD></TR>
+  </TABLE>
+  </BR>
+  <DIV STYLE="padding-left: 30px; padding-bottom: 15px;">
+    ${CHANGES, showPaths=true, format="<DIV><b>%a</b>: %r %p </DIV><DIV style=\"padding-left:30px;\"> &#8212; &#8220;<em>%m</em>&#8221;</div>", pathFormat="</div><div style=\"padding-left:30px;\">%p"}
+  </DIV>  
+  <BR/>
+  <TABLE width="100%">
+     <TR><TD class="bg1" colspan="2"><B>REPORT LINK</B></TD></TR>  
+  </TABLE>
+  <ul>
+    <li><a href="http://ci.fcaab.com.au/job/${JOB_NAME}/RUBOCOP_ANALYSIS_REPORT">http://ci.fcaab.com.au/job/${JOB_NAME}/RUBOCOP_ANALYSIS_REPORT</a></li>
+    <li><a href="http://ci.fcaab.com.au/job/${JOB_NAME}/SANDI_METER_REPORT">http://ci.fcaab.com.au/job/${JOB_NAME}/SANDI_METER_REPORT</a></li>
+    <li><a href="http://ci.fcaab.com.au/job/${JOB_NAME}/BRAKEMAN_SECURITY_REPORT">http://ci.fcaab.com.au/job/${JOB_NAME}/BRAKEMAN_SECURITY_REPORT</a></li>
+	<li><a href="http://ci.fcaab.com.au/job/${JOB_NAME}/RUBYCRITIC_ANALYSIS_REPORT">http://ci.fcaab.com.au/job/${JOB_NAME}/RUBYCRITIC_ANALYSIS_REPORT</a></li>
+	<li><a href="http://ci.fcaab.com.au/job/${JOB_NAME}/RSPEC_TEST_REPORT">http://ci.fcaab.com.au/job/${JOB_NAME}/RSPEC_TEST_REPORT</a></li>
+  </ul>
+  <BR/> 
+</BODY>
+
